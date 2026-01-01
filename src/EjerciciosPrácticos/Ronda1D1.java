@@ -35,5 +35,4 @@ Ej2: Crea una clase Calculadora con métodos para sumar, restar, multiplicar y d
 un método mostrarOperaciones() que liste todas las operaciones posible.
  */
 class Calculadora {
-
 }
