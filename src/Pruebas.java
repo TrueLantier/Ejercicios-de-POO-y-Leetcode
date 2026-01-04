@@ -1,14 +1,15 @@
 public class Pruebas {
     public static void main(String[] args) {
-        Pruebas ob = new Pruebas();
+        PruebaDos ob = new PruebaDos();
     }
 }
 
 class PruebaDos{
-    int num1 = 10;
-    int num2 = 20;
+    int num1;
+    int num2;
 
-    static void miMétodo() {
-
+    private PruebaDos() {
+        num1 = 10;
+        num2 = 20;
     }
 }
