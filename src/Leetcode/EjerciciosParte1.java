@@ -46,6 +46,10 @@ public class EjerciciosParte1 {
         String operación = "";
         int resultado = 0;
 
+        for (int i = 0; i < matriz.length; i++) {
+
+        }
+
         return 0;
     }
 }
