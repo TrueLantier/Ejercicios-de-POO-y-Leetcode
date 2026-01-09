@@ -8,8 +8,6 @@ public class Leetcode {
         System.out.println(a);
     }
 
-
-
     // Métodos auxiliares.
     public static void arrayPrint(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
