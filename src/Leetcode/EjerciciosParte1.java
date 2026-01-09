@@ -42,14 +42,55 @@ public class EjerciciosParte1 {
     // 2 Evaluate Reverse Polish Notation.
     // ["2", "1", "+", "3", "*"] ==> ((2+1) * 3) -> 9
     // ["4", "13", "5", "/", "+"] ==> (4 + (13/5)) -> 6
-    int evaluatePolishNotation(String[] matriz) {
+
+    static boolean esOperador(String valor) {
+        boolean esOperador = false;
+        String[] operadores = {"+", "-", "*", "/"};
+        for (String operador: operadores) {
+            if (operador == valor) {
+                esOperador = true;
+            }
+        }
+        return esOperador;
+    }
+
+    static int evaluatePolishNotation(String[] matriz) {
         String operación = "";
         int resultado = 0;
+        int primerValor = 0;
+        int segundoValor = 0;
+        for (int i = 1; i < matriz.length; i++) {
+            if (matriz[i] == "") { continue;}
 
-        for (int i = 0; i < matriz.length; i++) {
+            if (esOperador(matriz[i])) {
+                operación = matriz[i];
+                switch (operación){
+                    case "+":
+                        resultado = primerValor + segundoValor;
+                        matriz[i] = String.valueOf(resultado);
+                        matriz[i-1] = matriz[i-2] = "";
+                        continue ;
+                    case "-":
+                        resultado = primerValor - segundoValor;
+                        matriz[i] = String.valueOf(resultado);
+                        matriz[i-1] = matriz[i-2] = "";
+                        continue ;
+                    case "*":
+                        resultado = primerValor * segundoValor;
+                        matriz[i] = String.valueOf(resultado);
+                        matriz[i-1] = matriz[i-2] = "";
+                        continue ;
+                    case "/":
+                        resultado = primerValor / segundoValor;
+                        matriz[i] = String.valueOf(resultado);
+                        matriz[i-1] = matriz[i-2] = "";
+                        continue ;
+                }
+            }
+            primerValor = Integer.parseInt(matriz[i-1]);
+            segundoValor = Integer.parseInt(matriz[i]);
 
         }
-
-        return 0;
+        return resultado;
     }
 }

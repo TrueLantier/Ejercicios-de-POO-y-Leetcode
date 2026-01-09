@@ -1,12 +1,13 @@
 
 
 public class Pruebas {
-    static void esto() {
-
+    static int esto(int a) {
+        a = 3;
+        return a;
     }
 
     public static void main(String[] args) {
-
+        System.out.println(esto(2));
     }
 }
 
