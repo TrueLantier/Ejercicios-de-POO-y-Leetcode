@@ -3,7 +3,74 @@ package EjerciciosPrácticos;
 
 public class Ronda1D1 {
     public static void main(String[] args) {
+        Password password = new Password("angel157ANGEL");
+        password.esFuerte();
+    }
+}
 
+//Ej9
+/**
+ * Crea una clase Password con atributo contraseña(String). Agrega un método esFuerte() que verifique
+ * que tiene al menos 8 caracteres, una mayúscula, una minúscula y un número.
+ */
+class Password {
+    private final String contraseña;
+
+    Password(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    void esFuerte() {
+        boolean strongPassword = true;
+        if (contraseña.length() < 8) {
+            System.out.println("Su contraseña es insegura. Menos de 8 caracteres.");
+            return;
+        }
+
+        uno: for (int i = 0; i < contraseña.length(); i++) {
+            for (int j = 0; j < 27; j++) {
+                if (contraseña.charAt(i) == ((char) 'A' + j) ) {
+                    strongPassword = true;
+                    break uno;
+                }
+                strongPassword = false;
+            }
+        }
+        if (!strongPassword) {
+            System.out.println("Contraseña débil. Necesita el menos una mayúscula.");
+            return;
+        }
+
+        dos: for (int i = 0; i < contraseña.length(); i++) {
+            for (int j = 0; j < 27; j++) {
+                if (contraseña.charAt(i) == ((char) 'a' + j) ) {
+                    strongPassword = true;
+                    break dos;
+                }
+                strongPassword = false;
+            }
+        }
+        if (!strongPassword) {
+            System.out.println("Contraseña débil. Necesita el menos una minúscula.");
+            return;
+        }
+
+        // Esta vía es probando algo. Lo mejor para los números es almacenarlos en una matriz y comparar.
+        tres: for (int i = 0; i < contraseña.length(); i++) {
+            for (int j = 0; j < 10; j++) {
+                if (contraseña.charAt(i) == ( (char) '0' + j)) {
+                    strongPassword = true;
+                    break tres;
+                }
+                strongPassword = false;
+            }
+        }
+        if (!strongPassword) {
+            System.out.println("Contraseña débil. Necesita el menos un número.");
+            return;
+        }
+
+        System.out.println("Buena contraseña.");
     }
 }
 
@@ -12,6 +79,8 @@ public class Ronda1D1 {
 Crea una clase Producto con: código(String), nombre, precio, stock(int). Agrega un método vender
 (cantidad) que reduzca el stock si hay suficiente.
 En el main:
+        Producto producto = new Producto("0101112", "Laptop", 675.00, 10);
+        producto.vender(5);
  */
 class Producto {
     String código;
@@ -26,7 +95,7 @@ class Producto {
         stock = s;
     }
 
-
+    void vender(int num) { stock -= num; }
 }
 
 //Ej7

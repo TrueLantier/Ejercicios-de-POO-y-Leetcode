@@ -7,7 +7,12 @@ public class Pruebas {
     }
 
     public static void main(String[] args) {
-        System.out.println(esto(2));
+        for (int i = 0; i < 10; i++) {
+            System.out.print(i + '1' + " ");
+            System.out.print((char) i + " ");
+        }
+
+
     }
 }
 
