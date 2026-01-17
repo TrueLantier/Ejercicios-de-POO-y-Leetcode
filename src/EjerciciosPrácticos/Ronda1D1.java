@@ -14,6 +14,18 @@ Crea una clase Producto con: código(String), nombre, precio, stock(int). Agrega
 En el main:
  */
 class Producto {
+    String código;
+    String nombre;
+    double precio;
+    int stock;
+
+    Producto(String c, String n, double p, int s) {
+        código = c;
+        nombre = n;
+        precio = p;
+        stock = s;
+    }
+
 
 }
 
