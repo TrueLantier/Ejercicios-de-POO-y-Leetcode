@@ -7,10 +7,48 @@ public class Ronda1D1 {
     }
 }
 
+//Ej8
+/*
+Crea una clase Producto con: código(String), nombre, precio, stock(int). Agrega un método vender
+(cantidad) que reduzca el stock si hay suficiente.
+En el main:
+ */
+class Producto {
+
+}
+
+//Ej7
+/*
+Crea una clase Contador con un atributo valor(int). Agrega métodos para incrementar, decrementar y
+resetear. No permitas valores negativos.
+En el main:
+        Contador cont = new Contador(4);
+        cont.incrementar(10);
+        cont.incrementar(12);
+        cont.decrementar(6);
+        cont.resetear();
+ */
+class Contador {
+    private int valor;
+    private int original;
+
+    Contador(int num) {
+        valor = num;
+        original = num;
+    }
+
+    void incrementar(int suma) { valor += suma; }
+    void decrementar(int resta) { valor-= resta; }
+    void resetear() { valor = original; }
+}
+
 //Ej6
 /*
 Crea una clase Fecha con día, mes, año. Agrega un método esVálida() que verifique si es una fecha válida.
 En el main:
+        Fecha fecha = new Fecha(2, 2, 2002);
+        boolean verificar = fecha.esVálida();
+        System.out.println(verificar);
  */
 class Fecha {
     int día;
@@ -22,15 +60,15 @@ class Fecha {
         this.año = año;
     }
 
-    boolean esVálida(int día, int mes, int año) {
+    boolean esVálida() {
         boolean fechaVálida = true;
 
         if (año > 2100) { fechaVálida = false; }
         else {
-            if ( (mes < 0) || (mes > 12)) { fechaVálida = false; }
+            if ( (mes < 0) || (mes > 12) || (día < 1) || (día > 31)) { fechaVálida = false; }
             else {
                 if ( día > 28 && mes == 2) { fechaVálida = false; }
-                if ( )
+                if ( (mes != 2 ) && (mes%2 == 0) && (día > 30)) { fechaVálida = false; }
             }
         }
         return fechaVálida;
