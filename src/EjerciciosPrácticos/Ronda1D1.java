@@ -14,6 +14,7 @@ public class Ronda1D1 {
         System.out.println(texto1.invertirTexto() + " " + texto2.invertirTexto());
         System.out.println(texto1.buscarPalabra("ci"));
         System.out.println(texto3.buscarPalabra("pro"));
+
     }
 }
 
