@@ -4,7 +4,6 @@ package EjerciciosPrácticos;
 public class Ronda1D1 {
     public static void main(String[] args) {
 
-
     }
 }
 
@@ -23,9 +22,19 @@ class Fecha {
         this.año = año;
     }
 
-//    boolean esVálida(int día, int mes, int año) {
-//
-//    }
+    boolean esVálida(int día, int mes, int año) {
+        boolean fechaVálida = true;
+
+        if (año > 2100) { fechaVálida = false; }
+        else {
+            if ( (mes < 0) || (mes > 12)) { fechaVálida = false; }
+            else {
+                if ( día > 28 && mes == 2) { fechaVálida = false; }
+                if ( )
+            }
+        }
+        return fechaVálida;
+    }
 }
 
 //Ej5
