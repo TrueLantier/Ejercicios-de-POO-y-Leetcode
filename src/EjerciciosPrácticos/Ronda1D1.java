@@ -1,12 +1,19 @@
 package EjerciciosPrácticos;
 // Ronda 1, con dificultad 1.
 
+import org.w3c.dom.Text;
+
 public class Ronda1D1 {
     public static void main(String[] args) {
         String párrafo = "La programación es muy bonita. Java es un lenguaje que " +
                 "me gusta. Estoy estudiando programación orientada a objetos. La parte de manejo " +
                 "de excepciones la entendí pero tardaré en aplicarla bien.";
-
+        String[] palabras = {"Programación", "Úrsula", "Anaconda", "antítesis", "Tifoidea"};
+        Texto texto1 = new Texto(palabras[0]);
+        Texto texto2 = new Texto(palabras[1]);
+        Texto texto3 = new Texto(párrafo);
+        System.out.println(texto1.contarVocales() + " " + texto2.contarVocales() + " " + texto3.contarVocales());
+        System.out.println(texto1.invertirTexto() + " " + texto2.invertirTexto());
     }
 }
 
@@ -23,7 +30,24 @@ class Texto {
         this.contenido = contenido;
     }
 
-
+    int contarVocales() {
+        int contador = 0;
+        char[] vocales = { 'a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú',
+        'A', 'E', 'I', 'O', 'U', 'Á', 'É', 'Í', 'Ó', 'Ú'};
+        for (int i = 0; i < contenido.length(); i++) {
+            for (int j = 0; j < vocales.length; j++) {
+                if (contenido.charAt(i) == vocales[j]) { ++contador; }
+            }
+        }
+        return contador;
+    }
+    String invertirTexto() {
+        String inverso = "";
+        for (int i = contenido.length()-1; i >= 0; i--) {
+            inverso += contenido.charAt(i);
+        }
+        return inverso;
+    }
 }
 
 //Ej10
