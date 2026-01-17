@@ -1,8 +1,6 @@
 package EjerciciosPrácticos;
 // Ronda 1, con dificultad 1.
 
-import org.w3c.dom.Text;
-
 public class Ronda1D1 {
     public static void main(String[] args) {
         String párrafo = "La programación es muy bonita. Java es un lenguaje que " +
@@ -14,6 +12,8 @@ public class Ronda1D1 {
         Texto texto3 = new Texto(párrafo);
         System.out.println(texto1.contarVocales() + " " + texto2.contarVocales() + " " + texto3.contarVocales());
         System.out.println(texto1.invertirTexto() + " " + texto2.invertirTexto());
+        System.out.println(texto1.buscarPalabra("ci"));
+        System.out.println(texto3.buscarPalabra("pro"));
     }
 }
 
@@ -47,6 +47,23 @@ class Texto {
             inverso += contenido.charAt(i);
         }
         return inverso;
+    }
+    int buscarPalabra(String palabra) {
+        int index = -1;
+        boolean foundWord = false;
+        for (int i = 0; i < contenido.length(); i++) {
+            foundWord = false;
+            if (contenido.charAt(i) == palabra.charAt(0)) {
+                for (int j = 0; j < palabra.length(); j++) {
+                    if (contenido.charAt(i+j) == palabra.charAt(j)) {
+                        foundWord = true;
+                    }
+                }
+            }
+            if (foundWord) { return i ; }
+        }
+
+        return index;
     }
 }
 
