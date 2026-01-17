@@ -3,8 +3,51 @@ package EjerciciosPrácticos;
 
 public class Ronda1D1 {
     public static void main(String[] args) {
-        Password password = new Password("angel157ANGEL");
-        password.esFuerte();
+        String párrafo = "La programación es muy bonita. Java es un lenguaje que " +
+                "me gusta. Estoy estudiando programación orientada a objetos. La parte de manejo " +
+                "de excepciones la entendí pero tardaré en aplicarla bien.";
+
+    }
+}
+
+//Ej11
+/**
+ * Crea una clase texto con atributo contenido (String). Agrega métodos para contar vocales, invertir texto
+ * y buscar una palabra dentro del texto.
+ * En el main:
+ */
+class Texto {
+    String contenido;
+
+    Texto(String contenido) {
+        this.contenido = contenido;
+    }
+
+
+}
+
+//Ej10
+/**
+ * Crea una clase Punto con coordenadas x,y (double). Agrega un método distanciaA(punto) que calcule la
+ * distancia entre los puntos.
+ * En el main:
+ *      Punto puntoUno = new Punto(1, 0);
+ *      Punto puntoDos = new Punto(2, 0);
+ *      System.out.println(puntoUno.distanciaA(puntoDos) + " unidades");
+ */
+class Punto {
+    double x;
+    double y;
+
+    Punto(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    double distanciaA(Punto pto) {
+        double sumandoX = Math.pow((x - pto.x), 2);
+        double sumandoY = Math.pow((y - pto.y), 2);
+        return Math.sqrt( sumandoX + sumandoY );
     }
 }
 
@@ -12,6 +55,9 @@ public class Ronda1D1 {
 /**
  * Crea una clase Password con atributo contraseña(String). Agrega un método esFuerte() que verifique
  * que tiene al menos 8 caracteres, una mayúscula, una minúscula y un número.
+ * En el main:
+ *         Password password = new Password("angel157ANGEL");
+ *         password.esFuerte();
  */
 class Password {
     private final String contraseña;
