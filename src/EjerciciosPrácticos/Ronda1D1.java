@@ -17,7 +17,14 @@ reservar y liberar habitaciones, y mostrar disponibilidad.
 En el main:
  */
 class Habitación {
-    private int número;
+    int número;
+    boolean disponible;
+    double precio;
+    String[] tipo = {"Individual", "Doble"};
+
+
+}
+class Hotel {
 
 }
 
