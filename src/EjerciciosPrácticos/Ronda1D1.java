@@ -6,6 +6,66 @@ import Útiles.PrintArray;
 public class Ronda1D1 {
     public static void main(String[] args) {
 
+    }
+}
+
+//Ej15
+/*
+Crea una clase Rectángulo con base y altura. Agrega métodos para calcular área, perímetro y determinar
+si es un cuadrado.
+En el main:
+        Rectángulo rct1 = new Rectángulo(2, 4);
+        Rectángulo rct2 = new Rectángulo(5, 5);
+        rct1.area();
+        rct1.perímetro();
+        rct1.esCuadrado();
+        rct2.esCuadrado();
+ */
+class Rectángulo {
+    int base;
+    int altura;
+
+    Rectángulo(int b, int a) {
+        base = b;
+        altura = a;
+    }
+
+    void area() {
+        System.out.println("El área es: " + (base * altura));
+    }
+    void perímetro() {
+        System.out.println("El perímetro es: " + (2*base + 2*altura));
+    }
+
+    void esCuadrado() {
+        if (base == altura) {
+            System.out.println("La figura sí es un cuadrado.");
+        }   else {
+            System.out.println("La figura no es un cuadrado.");
+        }
+    }
+}
+
+//Ej14
+/*
+Crea una clase Dado con un método lanzar() que devuelva un número aleatorio entre 1-6. Agrega un método
+estadísticas(lanzamientos) que muestre frecuencia de cada número.
+ */
+class Dado {
+
+}
+
+//Ej13
+/*
+Crea una clase Temperatura que convierta entre Celsius y Fahrenheit. Usa métodos estáticos para las
+conversiones.
+En el main:
+ */
+class Temperatura {
+    public static void conversiónCelsius(double f) {
+
+    }
+    private static void conversiónFahrenheit() {
 
     }
 }
