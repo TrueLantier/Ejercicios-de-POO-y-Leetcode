@@ -7,19 +7,4 @@ public class Leetcode {
         int a = EjerciciosParte1.evaluatePolishNotation(ejemplo);
         System.out.println(a);
     }
-
-    // Métodos auxiliares.
-    public static void arrayPrint(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i] + " ");
-        }
-        System.out.println();
-    }
-    public static void arrayPrint(int[] nums, int k) {
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == k) continue;
-            System.out.print(nums[i] + " ");
-        }
-        System.out.println();
-    }
 }

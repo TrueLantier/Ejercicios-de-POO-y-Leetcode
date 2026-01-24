@@ -1,10 +1,42 @@
 package EjerciciosPrácticos;
 // Ronda 1, con dificultad 1.
 
+import Útiles.PrintArray;
+
 public class Ronda1D1 {
     public static void main(String[] args) {
 
 
+    }
+}
+
+//Ej12
+/*
+Esto es un modelo MUY sencillo.
+Crea una clase Banco con: nombre, clientes(array de Strings con máximo 100). Agrega métodos para
+agregar y eliminar clientes.
+En el main:
+        Banco bc = new Banco("Casa de Papel");
+        bc.agregarClientes("Angel");
+        bc.agregarClientes("Eduardo");
+        bc.eliminarClientes();
+ */
+class Banco {
+    String nombre;
+    String[] clientes = new String[100];
+    private int puesto = 0;
+
+    Banco(String nombre) {
+        this.nombre = nombre;
+    }
+
+    void agregarClientes(String nombre) {
+        clientes[puesto] = nombre;
+        ++puesto;
+    }
+    void eliminarClientes() {
+        clientes[puesto] = null;
+        --puesto;
     }
 }
 

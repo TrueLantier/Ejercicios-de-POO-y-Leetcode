@@ -1,5 +1,3 @@
-
-
 public class Pruebas {
     static int esto(int a) {
         a = 3;
@@ -7,13 +5,13 @@ public class Pruebas {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.print(i + '1' + " ");
-            System.out.print((char) i + " ");
-        }
+
+        String[] cadenas = new String[10];
+
 
 
     }
+
 }
 
 class PruebaDos{
