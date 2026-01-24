@@ -9,6 +9,18 @@ public class Ronda1D1 {
     }
 }
 
+//Ej16
+/*
+Sistema de reservas de hotel. Crea una clase habitación con número, tipo(individual/doble), precio,
+disponible(boolean). Crea una clase Hotel con nombre y array de 10 habitaciones. Agrega métodos para
+reservar y liberar habitaciones, y mostrar disponibilidad.
+En el main:
+ */
+class Habitación {
+    private int número;
+
+}
+
 //Ej15
 /*
 Crea una clase Rectángulo con base y altura. Agrega métodos para calcular área, perímetro y determinar
@@ -50,9 +62,28 @@ class Rectángulo {
 /*
 Crea una clase Dado con un método lanzar() que devuelva un número aleatorio entre 1-6. Agrega un método
 estadísticas(lanzamientos) que muestre frecuencia de cada número.
+En el main:
+        Dado dd = new Dado();
+        for (int i = 0; i < 10; i++) {dd.lanzar();}
+        dd.estadísticas();
  */
 class Dado {
+    int num;
+    int[][] lanzamientos = {
+            {1, 2, 3, 4, 5, 6},
+            {0, 0, 0, 0, 0, 0}
+    };
 
+    int lanzar() {
+        num = (int) (Math.random() * 6+1);
+        for (int i = 1; i <= 6; i++) {
+            if (num == i) { ++lanzamientos[1][i-1]; }
+        }
+        return num;
+    }
+    void estadísticas() {
+        PrintArray.arrayPrint(lanzamientos);
+    }
 }
 
 //Ej13
