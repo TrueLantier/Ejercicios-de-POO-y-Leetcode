@@ -3,7 +3,17 @@ package EjerciciosPrácticos;
 
 public class Ronda1D1 {
     public static void main(String[] args) {
-        String párrafo = "La programación es muy bonita. Java es un lenguaje que " +
+
+
+    }
+}
+
+//Ej11
+/*
+ * Crea una clase texto con atributo contenido (String). Agrega métodos para contar vocales, invertir texto
+ * y buscar una palabra dentro del texto.
+ * En el main:
+ *      String párrafo = "La programación es muy bonita. Java es un lenguaje que " +
                 "me gusta. Estoy estudiando programación orientada a objetos. La parte de manejo " +
                 "de excepciones la entendí pero tardaré en aplicarla bien.";
         String[] palabras = {"Programación", "Úrsula", "Anaconda", "antítesis", "Tifoidea"};
@@ -14,15 +24,6 @@ public class Ronda1D1 {
         System.out.println(texto1.invertirTexto() + " " + texto2.invertirTexto());
         System.out.println(texto1.buscarPalabra("ci"));
         System.out.println(texto3.buscarPalabra("pro"));
-
-    }
-}
-
-//Ej11
-/**
- * Crea una clase texto con atributo contenido (String). Agrega métodos para contar vocales, invertir texto
- * y buscar una palabra dentro del texto.
- * En el main:
  */
 class Texto {
     String contenido;
