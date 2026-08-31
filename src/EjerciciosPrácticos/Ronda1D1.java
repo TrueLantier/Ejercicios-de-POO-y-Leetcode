@@ -9,23 +9,92 @@ public class Ronda1D1 {
     }
 }
 
+//Ej17
+/*
+Gestor de tareas: Crea una clase Tarea con descripción, prioridad (1-5), completada (boolean).
+Crea una clase GestorTareas que maneje un array de tareas. Agrega métodos para agregar, eliminar,
+marcar como completada y mostrar tareas por prioridad.
+ */
+class Tarea{
+
+}
+class GestorTareas {
+
+}
+
 //Ej16
 /*
 Sistema de reservas de hotel. Crea una clase habitación con número, tipo(individual/doble), precio,
 disponible(boolean). Crea una clase Hotel con nombre y array de 10 habitaciones. Agrega métodos para
 reservar y liberar habitaciones, y mostrar disponibilidad.
 En el main:
+        Hotel hotel = new Hotel("Havana");
+        hotel.reservar(hotel.habitaciones[0]);
+        hotel.reservar(hotel.habitaciones[5]);
+        hotel.reservar(hotel.habitaciones[8]);
+        hotel.liberar(hotel.habitaciones[5]);
+        hotel.mostrarDisponibilidad();
  */
 class Habitación {
     int número;
     boolean disponible;
     double precio;
-    String[] tipo = {"Individual", "Doble"};
+    String tipo;
 
+    Habitación(int n, double p, String t) {
+        número = n;
+        disponible = true;
+        precio = p;
+        tipo = t;
+    }
 
 }
 class Hotel {
+    String nombre;
+    Habitación[] habitaciones = new Habitación[10];
 
+    Hotel(String nombre) {
+        this.nombre = nombre;
+        for (int i = 0; i < 10; i++) {
+            if (i%2 == 0) {
+                habitaciones[i] = new Habitación(i, 60, "individual");
+            }   else {
+                habitaciones[i] = new Habitación(i, 99, "doble");
+            }
+            habitaciones[i].disponible = true;
+        }
+    }
+
+    void reservar(Habitación hb) {
+        if (!hb.disponible) {
+            System.out.println("Esa habitación está ocupada.");
+        }
+        hb.disponible = false;
+    }
+    void liberar(Habitación hb) {
+        if (hb.disponible) {
+            System.out.println("Esta habitación ya está vacía.");
+        }
+        hb.disponible = true;
+    }
+    void mostrarDisponibilidad() {
+        boolean disponibilidad = false;
+        int[] disponibles = new int[10];
+
+        for (int i = 0; i < 10; i++) {
+            if (habitaciones[i].disponible) {
+                disponibilidad = true;
+                disponibles[i] = habitaciones[i].número;
+            }
+        }
+
+        if (disponibilidad) {
+            System.out.println("Habitaciones disponibles: ");
+            PrintArray.arrayPrint(disponibles);
+        }   else {
+            System.out.println("No hay habitaciones disponibles. :(");
+        }
+    }
 }
 
 //Ej15

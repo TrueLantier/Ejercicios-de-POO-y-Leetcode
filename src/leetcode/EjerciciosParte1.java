@@ -1,4 +1,4 @@
-package Leetcode;
+package leetcode;
 //Primeros 10 ejercicios.
 
 public class EjerciciosParte1 {

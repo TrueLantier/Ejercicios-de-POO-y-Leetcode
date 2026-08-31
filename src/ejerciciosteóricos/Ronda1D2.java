@@ -1,4 +1,4 @@
-package EjerciciosTeóricos;
+package ejerciciosteóricos;
 
 public class Ronda1D2 {
     public static void main(String[] args) {

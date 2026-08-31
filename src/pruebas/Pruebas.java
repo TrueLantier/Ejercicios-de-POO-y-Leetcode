@@ -1,3 +1,5 @@
+package pruebas;
+
 public class Pruebas {
     static int esto(int a) {
         a = 3;
