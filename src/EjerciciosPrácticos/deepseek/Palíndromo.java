@@ -9,11 +9,13 @@ package EjerciciosPrácticos.deepseek;
 public class Palíndromo {
     /**
      * Ejercicio 1: Palíndromo
+     * Palíndromo.palíndromo(Palíndromo.frases[0]);
      */
 
-    public static String[] frases = {"Yo hago yoga hoy.", "Assénéssa", "oso", "Somos o no somos", "reconoceR", "Arepera",
-            "sometemos", "Neuquén", "Dábale arroz a la zorra el abad.", "La ruta nos aportó otro paso natural",
-            "Sé verlas al revés", "Oír sin reír, ni serio."};
+    public static String[] frases = {"Yo hago yoga hoy.", "Assénéssa", "oso", "Somos o no somos", "reconoceR",
+            "Arepera", "sometemos", "Neuquén", "Dábale arroz a la zorra el abad.",
+            "La ruta nos aportó otro paso natural", "Sé verlas al revés", "Oír sin reír, ni serio.",
+            "A man, a plan, a canal: Panama"};
 
     public static void palíndromo(String frase) {
         boolean esPalíndromo = true;
