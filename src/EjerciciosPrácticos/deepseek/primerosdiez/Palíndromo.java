@@ -1,4 +1,4 @@
-package EjerciciosPrácticos.deepseek;
+package EjerciciosPrácticos.deepseek.primerosdiez;
 
 /*
  ¿Por qué equals() y == no son lo mismo?
@@ -6,36 +6,44 @@ package EjerciciosPrácticos.deepseek;
  ¿Por qué IntelliJ me pone reemplazar los souts con logpoints?
  */
 
+import java.util.Scanner;
+
 public class Palíndromo {
+
     /**
      * Ejercicio 1: Palíndromo
      * Palíndromo.palíndromo(Palíndromo.frases[0]);
+     * Palíndromo.pedirFrase();
      */
 
-    public static String[] frases = {"Yo hago yoga hoy.", "Assénéssa", "oso", "Somos o no somos", "reconoceR",
-            "Arepera", "sometemos", "Neuquén", "Dábale arroz a la zorra el abad.",
+    public static Scanner sc = new Scanner(System.in);
+
+    public static String[] frases = {"Yo hago yoga hoy.", "AsSénésSa", "oso", "Somos o no somos", "reconoceR",
+            "Arepera", "s ome te mos", "Neuquén", "Dábale arroz a la zorra el abad.",
             "La ruta nos aportó otro paso natural", "Sé verlas al revés", "Oír sin reír, ni serio.",
-            "A man, a plan, a canal: Panama"};
+            "A man, a plan, a canal: Panama", ",,,a"};
 
     public static void palíndromo(String frase) {
         boolean esPalíndromo = true;
-        int longitud = frase.length();
         int contInicial = 0;
-        int contFinal = 0;
+        int contFinal = frase.length()-1;
 
-        for (int i=0; i < longitud / 2; i++) {
+        while (contInicial < contFinal) {
 
-            if (esSigno(frase.charAt(i + contInicial))) {
+            while (esSigno(frase.charAt(contInicial)) && (contInicial < contFinal)) {
                 ++contInicial;
             }
-            if (esSigno(frase.charAt(longitud-1-i-contFinal))) {
-                ++contFinal;
+            while (esSigno(frase.charAt(contFinal)) && (contInicial < contFinal)) {
+                --contFinal;
             }
 
-            if (!comprobar(frase.charAt(i + contInicial), frase.charAt(longitud-1-i-contFinal))) {
+            if (!comprobar(frase.charAt(contInicial), frase.charAt(contFinal))) {
                 esPalíndromo = false;
                 break;
             }
+
+            ++contInicial;
+            --contFinal;
         }
 
         if (esPalíndromo) {
@@ -57,7 +65,7 @@ public class Palíndromo {
     }
 
     public static boolean esSigno(char letra) {
-        int[] numsLetras = {193, 201, 205, 211, 218, 225, 233, 237, 243, 250, 209, 241};
+        int[] numsLetras = {193, 201, 205, 211, 218, 225, 233, 237, 243, 250, 209, 241, 220, 252};
 
         if ((65 <= (int) letra) && ((int) letra <= 90)) {
             return false;
@@ -100,5 +108,11 @@ public class Palíndromo {
         }
 
         return letra;
+    }
+
+    public static void pedirFrase() {
+        System.out.println("Escriba una frase para ver si es palíndroma: ");
+        String frase = sc.nextLine();
+        palíndromo(frase);
     }
 }
