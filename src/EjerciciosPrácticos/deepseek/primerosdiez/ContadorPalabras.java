@@ -3,6 +3,8 @@ package EjerciciosPrácticos.deepseek.primerosdiez;
 import java.text.Collator;
 import java.util.*;
 
+// Roto.
+
 /*
   Lee un texto y cuenta cuántas veces aparece cada palabra. Usa un `HashMap<String, Integer>` y muestra el
   resultado ordenado alfabéticamente.
@@ -22,10 +24,10 @@ public class ContadorPalabras {
 
         for (int i = 0; i < texto.length(); i++) {
             if (Character.isLetter(texto.charAt(i))) {
-                palabra.append( texto.charAt(i));
+                palabra.append(texto.charAt(i));
             } else {
                 if (!palabra.isEmpty()) {
-                    palabra = palabra.toLowerCase();
+                    palabra = new StringBuilder(String.valueOf(palabra).toLowerCase());
                     if (contadorPalabras.containsKey(palabra)) {
                         Integer cantidad = contadorPalabras.get(palabra);
                         contadorPalabras.replace(String.valueOf(palabra), cantidad, cantidad + 1);

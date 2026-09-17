@@ -1,11 +1,5 @@
 package EjerciciosPrácticos.deepseek.primerosdiez;
 
-/*
- ¿Por qué equals() y == no son lo mismo?
- ¿Cómo se llaman las letras en números a = 97?
- ¿Por qué IntelliJ me pone reemplazar los souts con logpoints?
- */
-
 import java.util.Scanner;
 
 public class Palíndromo {

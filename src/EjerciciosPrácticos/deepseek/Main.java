@@ -1,12 +1,12 @@
 package EjerciciosPrácticos.deepseek;
 
 import EjerciciosPrácticos.deepseek.primerosdiez.*;
+import Útiles.PrintArray;
 
 public class Main {
     public static void main(String[] args) {
-//        ContadorPalabras.contarPalabras(Texto.textoCero);
-//        System.out.println(ContadorPalabras.contadorPalabras);
+        OrdenarMedir om = new OrdenarMedir();
 
-        ContadorPalabras.mostrarMapaOrdenado(Texto.textoCero);
+        om.mostrarComparaciones(om.arrayCuatro);
     }
 }
