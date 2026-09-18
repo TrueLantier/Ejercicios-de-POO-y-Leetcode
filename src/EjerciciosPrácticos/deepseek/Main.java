@@ -7,6 +7,9 @@ public class Main {
     public static void main(String[] args) {
         OrdenarMedir om = new OrdenarMedir();
 
-        om.mostrarComparaciones(om.arrayCuatro);
+        //om.ordenarInserción(OrdenarMedir.arrayCuatro);
+        //System.out.println(om.comparacionesInserción);
+
+        om.mostrarComparaciones(OrdenarMedir.arrayCuatro);
     }
 }
