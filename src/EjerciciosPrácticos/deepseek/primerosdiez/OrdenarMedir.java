@@ -1,14 +1,11 @@
 package EjerciciosPrácticos.deepseek.primerosdiez;
+import Útiles.PrintArray;
 
 /*
   Ejercicio 3:
   Implementa el algoritmo de burbuja y el de inserción para ordenar un array de enteros. Cuenta y muestra cuántas
   comparaciones realiza cada uno.
  */
-
-import Útiles.PrintArray;
-
-import java.lang.reflect.Array;
 
 public class OrdenarMedir {
     public static int[] arrayUno = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -22,40 +19,62 @@ public class OrdenarMedir {
     public int comparacionesInserción = 0;
 
     public void mostrarComparaciones(int[] array) {
-        int[] arrayFijo = array;
 
         ordenarBurbuja(array);
         System.out.println("El algoritmo burbuja hizo: " + comparacionesBurbuja + " comparaciones.");
 
-        ordenarInserción(arrayFijo);
+        ordenarInserción(array);
         System.out.println("El algoritmo inserción hizo: " + comparacionesInserción + " comparaciones.");
     }
 
     public void ordenarBurbuja(int[] array) {
-        for (int i = 0; i < array.length-1; i++) {
-            for (int j = 0; j < array.length-1; j++) {
-                int numActual = array[j];
-                if (array[j] > array[j+1]) {
-                    array[j] = array[j+1];
-                    array[j+1] = numActual;
+        int[] arrayFijo = array.clone();
+
+        for (int i = 0; i < arrayFijo.length-1; i++) {
+            for (int j = 0; j < arrayFijo.length-1; j++) {
+                int numActual = arrayFijo[j];
+                if (arrayFijo[j] > arrayFijo[j+1]) {
+                    arrayFijo[j] = arrayFijo[j+1];
+                    arrayFijo[j+1] = numActual;
                     ++comparacionesBurbuja;
                 }
             }
         }
-        PrintArray.arrayPrint(array);
+        PrintArray.arrayPrint(arrayFijo);
     }
 
     public void ordenarInserción(int[] array) {
-        for (int i = 1; i < array.length; i++) {
+        int[] arrayFijo = array.clone();
+
+        for (int i = 1; i < arrayFijo.length; i++) {
             for (int j = i; j > 0; j--) {
-                int numActual = array[j];
-                if (array[j] < array[j-1]) {
-                    array[j] = array[j-1];
-                    array[j-1] = numActual;
+                int numActual = arrayFijo[j];
+                if (arrayFijo[j] < arrayFijo[j-1]) {
+                    arrayFijo[j] = arrayFijo[j-1];
+                    arrayFijo[j-1] = numActual;
                     ++comparacionesInserción;
                 }
             }
         }
-        PrintArray.arrayPrint(array);
+        PrintArray.arrayPrint(arrayFijo);
     }
 }
+
+/*
+        int[] num1 = { 1, 2, 3};
+        int[] num2 = num1;
+
+        PrintArray.arrayPrint(num1);
+        PrintArray.arrayPrint(num2);
+
+        num2[0] = 3;
+        num2[1] = 2;
+        num2[2] = 1;
+        PrintArray.arrayPrint(num1);
+        PrintArray.arrayPrint(num2);
+
+        for (int i = 0; i < 10; i++) {
+            int a = (int) (Math.random() * 6 + 1);
+            System.out.print(a + " ");
+        }
+ */
