@@ -40,4 +40,6 @@ public class Texto {
             "el estrés, mejora la concentración y ayuda a conocerte mejor. No necesitas ropa especial ni un " +
             "lugar perfecto; solo un momento de quietud. Con la práctica constante, descubrirás más serenidad " +
             "en medio del ruido cotidiano. Es un regalo que te haces a ti mismo.";
+
+    public static String textoSeis = "hola mundo";
 }

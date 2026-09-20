@@ -18,6 +18,10 @@ public class ContadorPalabras {
     }
 
     public static void contarPalabras(String texto) {
+        if (!texto.endsWith(".")) {
+            texto = texto + ".";
+        }
+
         StringBuilder palabra = new StringBuilder();
 
         for (int i = 0; i < texto.length(); i++) {
