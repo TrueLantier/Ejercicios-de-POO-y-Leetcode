@@ -5,6 +5,6 @@ import Útiles.PrintArray;
 
 public class Main {
     public static void main(String[] args) {
-
+        ContadorPalabras.mostrarMapaOrdenado(Texto.textoCero);
     }
 }

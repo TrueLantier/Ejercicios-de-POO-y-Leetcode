@@ -29,16 +29,20 @@ public class OrdenarMedir {
 
     public void ordenarBurbuja(int[] array) {
         int[] arrayFijo = array.clone();
+        boolean cambio = false;
 
         for (int i = 0; i < arrayFijo.length-1; i++) {
-            for (int j = 0; j < arrayFijo.length-1; j++) {
-                int numActual = arrayFijo[j];
+            for (int j = 0; j < arrayFijo.length-1-i; j++) {
                 if (arrayFijo[j] > arrayFijo[j+1]) {
+                    int numActual = arrayFijo[j];
                     arrayFijo[j] = arrayFijo[j+1];
                     arrayFijo[j+1] = numActual;
+                    cambio = true;
                     ++comparacionesBurbuja;
                 }
             }
+
+            if (!cambio) { break;}
         }
         PrintArray.arrayPrint(arrayFijo);
     }
@@ -73,8 +77,16 @@ public class OrdenarMedir {
         PrintArray.arrayPrint(num1);
         PrintArray.arrayPrint(num2);
 
-        for (int i = 0; i < 10; i++) {
-            int a = (int) (Math.random() * 6 + 1);
-            System.out.print(a + " ");
+        OrdenarMedir om = new OrdenarMedir();
+        om.mostrarComparaciones(OrdenarMedir.arrayCinco);
+
+        int[] arrayLargo = new int[1000];
+
+        for (int i = 0; i < 1000; i++) {
+            arrayLargo[i] = (int) (Math.random() * 1000 + 1);
         }
+
+        PrintArray.arrayPrint(arrayLargo);
+        System.out.println();
+        om.mostrarComparaciones(arrayLargo);
  */

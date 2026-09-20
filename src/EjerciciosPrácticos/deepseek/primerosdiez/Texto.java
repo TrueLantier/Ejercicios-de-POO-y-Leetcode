@@ -1,7 +1,7 @@
 package EjerciciosPrácticos.deepseek.primerosdiez;
 
 public class Texto {
-    public static String textoCero = "Este es el texto de prueba. Vamos a ver. Pero será de prueba? Vamos a ver.";
+    public static String textoCero = "Este es el texto de prueba. Vamos a ver. Pero será de prueba? Vamos a ver. Yo.";
 
     public static String textoUno = "Este es el primer texto que escribo para este programa. Debe ser útil y mostrar " +
             "diversas palabras. Tendré que releer cosas de HashMap pero eso es bueno, son interesantes. En cuanto a " +
