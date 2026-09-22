@@ -13,29 +13,17 @@ public class MatrizTranspuesta {
     private int[][] matriz = new int[filas][columnas];
     private int[][] matrizTranspuesta = new int[columnas][filas];
 
-    public void mostrarMatrices() {
-        generarMatriz();
-        System.out.println();
-        generarTraspuesta();
-    }
-
-    private void generarMatriz() {
+    public void generarMatriz() {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
                 matriz[i][j] = (int) (Math.random() * 9 + 1);
+                matrizTranspuesta[j][i] = matriz[i][j];
             }
         }
 
         PrintArray.arrayPrint(matriz);
-    }
-
-    private void generarTraspuesta() {
-        for (int i = 0; i < matrizTranspuesta.length; i++) {
-            for (int j = 0; j < matrizTranspuesta[0].length; j++) {
-                matrizTranspuesta[i][j] = matriz[j][i];
-            }
-        }
-
+        System.out.println();
         PrintArray.arrayPrint(matrizTranspuesta);
     }
+
 }

@@ -9,48 +9,77 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ValidarSudoku {
+
     private final int TAMAÑO = 9;
-    List<Integer> lista = new ArrayList<>();
+    List<Integer> listaFilas = new ArrayList<>();
+    List<Integer> listaColumnas = new ArrayList<>();
+    List<Integer> listaCuadrículas = new ArrayList<>();
+
+    String fila = "filas";
+    String columna = "columnas";
+    String cuadrícula = "cuadrículas";
 
     public void validarSudoku(int[][] sudoku) {
         if (!validarTamaño(sudoku)) {
             System.out.println("Tamaño de sudoku incorrecto.");
             return;
         }
-        if (!validarFilas(sudoku)) {
-            System.out.println("Error en las filas del sudoku.");
+        if (!validarFC(sudoku)) {
+            System.out.println("Error.");
             return;
         }
 
         System.out.println("Sudoku válido.");
     }
 
-    public boolean validarTamaño(int[][] sudoku) {
+    private boolean validarTamaño(int[][] sudoku) {
         if (sudoku.length != TAMAÑO) { return false;}
         return sudoku[0].length == TAMAÑO;
     }
 
-    public boolean validarFilas(int[][] sudoku) {
+    private boolean validarFC(int[][] sudoku) {
         for (int i = 0; i < TAMAÑO; i++) {
             for (int j = 0; j < TAMAÑO; j++) {
                 if (sudoku[i][j] > 9 || sudoku[i][j] < 1) {
+                    System.out.println("Número incorrecto: " + sudoku[i][j]);
                     return false;
                 }
-                if (!contadorNúmeros(sudoku[i][j])) {
+
+                if (contadorNúmeros(sudoku[i][j], "filas") || contadorNúmeros(sudoku[j][i], "columnas")) {
                     return false;
                 }
             }
 
-            lista = new ArrayList<>();
+            listaFilas = new ArrayList<>();
+            listaColumnas = new ArrayList<>();
         }
         return true;
     }
 
-    private boolean contadorNúmeros(int num) {
-        if (lista.contains(num)) {
-            return false;
-        }
-        lista.add(num);
+    private boolean validarCuadrículas(int[][] sudoku) {
+
+
         return true;
+    }
+
+    private boolean contadorNúmeros(int num, String rango) {
+
+        if (rango.equals(fila)) {
+            if (listaFilas.contains(num)) {
+                System.out.println("Número repetido en fila.");
+                return true;
+            }
+            listaFilas.add(num);
+        }
+
+        if (rango.equals(columna)) {
+            if (listaColumnas.contains(num)) {
+                System.out.println("Número repetido en columna.");
+                return true;
+            }
+            listaColumnas.add(num);
+        }
+
+        return false;
     }
 }

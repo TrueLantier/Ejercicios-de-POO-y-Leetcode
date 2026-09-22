@@ -5,15 +5,17 @@ public class Sudoku {
     // Correctos
 
     public static int[][] valido1Int = {
-            {1,2,3,4,5,6,7,8,9},
-            {4,5,6,7,8,9,1,2,3},
-            {7,8,9,1,2,3,4,5,6},
-            {2,3,4,5,6,7,8,9,1},
-            {5,6,7,8,9,1,2,3,4},
-            {8,9,1,2,3,4,5,6,7},
-            {3,4,5,6,7,8,9,1,2},
-            {6,7,8,9,1,2,3,4,5},
-            {9,1,2,3,4,5,6,7,8}
+            {1,2,3  ,4,5,6  ,7,8,9},
+            {4,5,6  ,7,8,9  ,1,2,3},
+            {7,8,9  ,1,2,3  ,4,5,6},
+
+            {2,3,4  ,5,6,7  ,8,9,1},
+            {5,6,7  ,8,9,1  ,2,3,4},
+            {8,9,1  ,2,3,4  ,5,6,7},
+
+            {3,4,5  ,6,7,8  ,9,1,2},
+            {6,7,8  ,9,1,2  ,3,4,5},
+            {9,1,2  ,3,4,5  ,6,7,8}
     };
 
     public static int[][] valido2Int = {
@@ -222,18 +224,6 @@ public class Sudoku {
     };
 
     public static int[][] incorrecto9Int = {
-            {1,2,3,4,5,6,7,8,9},
-            {4,5,6,7,8,9,1,2,3},
-            {7,8,9,1,2,3,4,5,6},
-            {2,3,4,5,6,7,8,9,1},
-            {5,6,7,8,9,1,2,3,4},
-            {8,9,1,2,3,4,5,6,7},
-            {3,4,5,6,7,8,9,1,2},
-            {6,7,8,9,1,2,3,4,5},
-            {9,1,2,3,4,5,6,7,-1}
-    };
-
-    public static int[][] incorrecto10 = {
             {0,2,3,4,5,6,7,8,9},
             {4,0,6,7,8,9,1,2,3},
             {7,8,0,1,2,3,4,5,6},
@@ -243,5 +233,30 @@ public class Sudoku {
             {3,4,5,6,7,8,0,1,2},
             {6,7,8,9,1,2,3,0,5},
             {9,1,2,3,4,5,6,7,0}
+    };
+
+    public static int[][][] sudokusCorrectos = {
+            valido1Int,
+            valido2Int,
+            valido3Int,
+            valido4Int,
+            valido5Int,
+            correctoInt1,
+            correctoInt2,
+            correctoInt3,
+            correctoInt4,
+            correctoInt5
+    };
+
+    public static int[][][] sudokusIncorrectos = {
+            incorrecto1,
+            incorrecto2,
+            incorrecto3,
+            incorrecto4,
+            incorrecto5,
+            incorrecto6,
+            incorrecto7Int,
+            incorrecto8Int,
+            incorrecto9Int
     };
 }
