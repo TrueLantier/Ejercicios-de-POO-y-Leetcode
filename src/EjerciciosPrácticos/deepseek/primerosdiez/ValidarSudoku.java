@@ -5,6 +5,8 @@ package EjerciciosPrácticos.deepseek.primerosdiez;
   tienen números repetidos.
  */
 
+import Útiles.PrintArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +17,10 @@ public class ValidarSudoku {
     List<Integer> listaColumnas = new ArrayList<>();
     List<Integer> listaCuadrículas = new ArrayList<>();
 
+    int[][] intervalos = { {0, 0}, {0, 3}, {0, 6}, {3, 0}, {3, 3}, {3, 6}, {6, 0}, {6, 3}, {6, 6} };
+
     String fila = "filas";
     String columna = "columnas";
-    String cuadrícula = "cuadrículas";
 
     public void validarSudoku(int[][] sudoku) {
         if (!validarTamaño(sudoku)) {
@@ -28,17 +31,30 @@ public class ValidarSudoku {
             System.out.println("Error.");
             return;
         }
+        if (!validarCuadrículas(sudoku)) {
+            System.out.println("Error en la cuadrículas.");
+            return;
+        }
 
         System.out.println("Sudoku válido.");
     }
 
     private boolean validarTamaño(int[][] sudoku) {
         if (sudoku.length != TAMAÑO) { return false;}
-        return sudoku[0].length == TAMAÑO;
+        for (int i = 0; i < TAMAÑO; i++) {
+            if (sudoku[i].length != TAMAÑO) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private boolean validarFC(int[][] sudoku) {
         for (int i = 0; i < TAMAÑO; i++) {
+            listaFilas = new ArrayList<>();
+            listaColumnas = new ArrayList<>();
+
             for (int j = 0; j < TAMAÑO; j++) {
                 if (sudoku[i][j] > 9 || sudoku[i][j] < 1) {
                     System.out.println("Número incorrecto: " + sudoku[i][j]);
@@ -50,14 +66,29 @@ public class ValidarSudoku {
                 }
             }
 
-            listaFilas = new ArrayList<>();
-            listaColumnas = new ArrayList<>();
         }
         return true;
     }
 
     private boolean validarCuadrículas(int[][] sudoku) {
+        for (int[] rangos: intervalos) {
+            int sumaFila = rangos[0];
+            int sumaColumna = rangos[1];
 
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    int numActual = sudoku[i + sumaFila][j + sumaColumna];
+
+                    if (listaCuadrículas.contains(numActual)) {
+                        PrintArray.arrayPrint(rangos);
+                        return false;
+                    }
+                    listaCuadrículas.add(numActual);
+                }
+            }
+
+            listaCuadrículas = new ArrayList<>();
+        }
 
         return true;
     }
@@ -66,7 +97,7 @@ public class ValidarSudoku {
 
         if (rango.equals(fila)) {
             if (listaFilas.contains(num)) {
-                System.out.println("Número repetido en fila.");
+                System.out.println("Número repetido en fila. Es: " + num);
                 return true;
             }
             listaFilas.add(num);
@@ -74,7 +105,7 @@ public class ValidarSudoku {
 
         if (rango.equals(columna)) {
             if (listaColumnas.contains(num)) {
-                System.out.println("Número repetido en columna.");
+                System.out.println("Número repetido en columna. Es: " + num);
                 return true;
             }
             listaColumnas.add(num);
