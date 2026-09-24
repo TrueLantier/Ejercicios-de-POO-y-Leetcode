@@ -5,6 +5,16 @@ package EjerciciosPrácticos.deepseek.primerosdiez;
   tienen números repetidos.
  */
 
+/*
+  Nota: si hay variables que necesitan reutilizarse, en ocasiones es mejor reiniciarlas al INICIO, no al final.
+  Porque si algún método o ciclo sale por alguna razón antes del final, esas variables no se reiniciarán.
+  Esto provocará que arrastren datos en la siguiente operación( método o algo más), alterando el funcionamiento del
+  programa.
+
+  Nota2: Un programa puede dar correcto para una lista de casos válidos, incorrecto para casos inválidos, y aún así
+  tener errores si las listas se combinan.
+ */
+
 import Útiles.PrintArray;
 
 import java.util.ArrayList;
@@ -61,7 +71,7 @@ public class ValidarSudoku {
                     return false;
                 }
 
-                if (contadorNúmeros(sudoku[i][j], "filas") || contadorNúmeros(sudoku[j][i], "columnas")) {
+                if (contadorNúmeros(sudoku[i][j], fila) || contadorNúmeros(sudoku[j][i], columna)) {
                     return false;
                 }
             }
@@ -74,6 +84,7 @@ public class ValidarSudoku {
         for (int[] rangos: intervalos) {
             int sumaFila = rangos[0];
             int sumaColumna = rangos[1];
+            listaCuadrículas = new ArrayList<>();
 
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
@@ -86,31 +97,28 @@ public class ValidarSudoku {
                     listaCuadrículas.add(numActual);
                 }
             }
-
-            listaCuadrículas = new ArrayList<>();
         }
-
         return true;
     }
 
     private boolean contadorNúmeros(int num, String rango) {
 
-        if (rango.equals(fila)) {
-            if (listaFilas.contains(num)) {
-                System.out.println("Número repetido en fila. Es: " + num);
-                return true;
-            }
-            listaFilas.add(num);
-        }
+       switch (rango) {
+           case "filas":
+               if (listaFilas.contains(num)) {
+                   System.out.println("Número repetido en fila. Es: " + num);
+                   return true;
+               }
+               listaFilas.add(num);
+               break;
+           case "columnas":
+               if (listaColumnas.contains(num)) {
+                   System.out.println("Número repetido en columna. Es: " + num);
+                   return true;
+               }
+               listaColumnas.add(num);
+       }
 
-        if (rango.equals(columna)) {
-            if (listaColumnas.contains(num)) {
-                System.out.println("Número repetido en columna. Es: " + num);
-                return true;
-            }
-            listaColumnas.add(num);
-        }
-
-        return false;
+       return false;
     }
 }
