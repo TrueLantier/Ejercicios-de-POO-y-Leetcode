@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         ValidarSudoku vs = new ValidarSudoku();
 
-        vs.validarSudoku(Sudoku.sudokusIncorrectos[8]);
+        //vs.validarSudoku(Sudoku.sudokusIncorrectos[8]);
 
 //        for (int i = 0; i < 10; i++) {
 //            vs.validarSudoku(Sudoku.sudokusCorrectos[i]);
@@ -15,5 +15,8 @@ public class Main {
 //            System.out.println();
 //        }
 
+
+
     }
+
 }
