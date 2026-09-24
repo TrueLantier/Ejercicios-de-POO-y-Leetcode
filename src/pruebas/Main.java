@@ -30,7 +30,7 @@ public class Main {
                 for (int j = 0; j < 2; j++) {
                     int numActual = nums[i + sumaFila][j + sumaColumna];
 
-                    //System.out.print(numActual + " ");
+                    System.out.print(numActual + " ");
                     if (lista.contains(numActual)) {
                         System.out.println("NEC");
 
