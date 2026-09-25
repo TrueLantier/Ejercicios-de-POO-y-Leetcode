@@ -62,6 +62,24 @@ public class OrdenarMedir {
         }
         PrintArray.arrayPrint(arrayFijo);
     }
+
+    public void ordenarMínimosSucesivos(int[] array) {
+        int[] arrayFijo = array.clone();
+        int num = arrayFijo.length;
+
+        for (int i = 0; i < num-1; i++) {
+            int mínimo = i;
+            for (int j = i+1; j < num; j++) {
+                if (arrayFijo[j] < arrayFijo[i]) {
+                    mínimo = j;
+                }
+            }
+
+            int numActual = arrayFijo[mínimo];
+            arrayFijo[mínimo] = arrayFijo[i];
+            arrayFijo[i] = numActual;
+        }
+    }
 }
 
 /*
