@@ -96,5 +96,3 @@ Crea un simulador de torneo con `Equipo`, `Partido` y `Torneo`. Genera enfrentam
 Sistema con `Producto`, `Categoria` y `Proveedor`. Controla stock, compras y ventas, alerta de stock mínimo y genera reportes de inventario valorizado.
 
 ---
-
-¿Quieres que te ayude a resolver alguno o que te dé pistas?
