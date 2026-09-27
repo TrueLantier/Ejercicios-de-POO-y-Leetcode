@@ -71,7 +71,7 @@ public class CifradoCésar {
                 mensajeAlterado.append((char) letra);
                 continue;
             }
-            if ((65 <= (int) letra) && ((int) letra <= 90)) {
+            if ((65 <= letra) && (letra <= 90)) {
                 if (codificar) {
                     letra += clave;
                     if (letra > 90) {
@@ -85,7 +85,7 @@ public class CifradoCésar {
                 }
             }
 
-            if ((97 <= (int) letra) && ((int) letra <= 122)) {
+            if ((97 <= letra) && (letra <= 122)) {
                 if (codificar) {
                     letra += clave;
                     if (letra > 122) {
@@ -101,9 +101,5 @@ public class CifradoCésar {
             mensajeAlterado.append((char) letra);
         }
         System.out.println("\n" + mensajeAlterado);
-    }
-
-    public void decodificarMensaje() {
-
     }
 }
