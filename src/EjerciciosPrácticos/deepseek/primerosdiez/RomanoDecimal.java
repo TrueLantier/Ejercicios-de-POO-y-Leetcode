@@ -5,20 +5,34 @@ package EjerciciosPrácticos.deepseek.primerosdiez;
  */
 
 public class RomanoDecimal {
-    String uno = "I";
-    String cinco = "V";
-    String diez = "X";
-    String l50 = "L";
-    String cien = "C";
-    String d500 = "D";
-    String mil = "M";
 
+    public int convertirADecimal(String letras) {
+        int num = 0;
+        int len = letras.length();
+        int valorAnterior = 0;
+        int j = 0;
 
+        while (j < len) {
+            int valorActual = valorarLetra(String.valueOf(letras.charAt(len-j-1)));
 
-    public void convertirARomano(int num) {
+            if (valorActual < valorAnterior) {
+                num -= valorActual;
+                valorAnterior = valorarLetra(String.valueOf(letras.charAt(len-j-1)));
+                j++;
+                continue;
+            }
+
+            num += valorActual;
+            valorAnterior = valorarLetra(String.valueOf(letras.charAt(len-j-1)));
+            j++;
+        }
+
+        return num;
+    }
+
+    public String convertirARomano(int num) {
         if (num < 1 || num > 3999) {
-            System.out.println("Número fuera de rango.");
-            return;
+            return "Número fuera de rango.";
         }
 
         int u = num % 10;
@@ -27,22 +41,19 @@ public class RomanoDecimal {
         int um = (num-u-d*10-c*100) / 1000;
 
         if (num < 10) {
-            System.out.println(verUnidades(num));
-            return;
+            return verUnidades(num);
         }
 
         if (num < 100) {
-            System.out.println(verDecenas(d) + verUnidades(u));
-            return;
+            return verDecenas(d) + verUnidades(u);
         }
 
         if (num < 1000) {
-            System.out.println(verCentenas(c) + verDecenas(d) + verUnidades(u));
-            return;
+            return verCentenas(c) + verDecenas(d) + verUnidades(u);
         }
 
-        System.out.println(um + " " + c + " " + d + " " + u);
-        System.out.println(verUM(um) + verCentenas(c) + verDecenas(d) + verUnidades(u));
+        // System.out.println(um + " " + c + " " + d + " " + u);
+        return verUM(um) + verCentenas(c) + verDecenas(d) + verUnidades(u);
     }
 
     public String verUnidades(int u) {
@@ -96,6 +107,19 @@ public class RomanoDecimal {
             case 2 -> "MM";
             case 3 -> "MMM";
             default -> "";
+        };
+    }
+
+    public int valorarLetra(String a) {
+        return switch (a) {
+            case "I" -> 1;
+            case "V" -> 5;
+            case "X" -> 10;
+            case "L" -> 50;
+            case "C" -> 100;
+            case "D" -> 500;
+            case "M" -> 1000;
+            default -> 0;
         };
     }
 
