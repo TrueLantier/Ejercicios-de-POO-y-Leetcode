@@ -52,7 +52,7 @@ public class Anagramas {
         }
     }
 
-    // Hacerlos usando listas que guardan los valores, se ordenan, y luego se comparan entre sí.
+    // ***Hacerlos usando listas que guardan los valores, se ordenan, y luego se comparan entre sí.***
 
     public void comprobarListaAnagramas(String fraseUno, String fraseDos) {
         if (fraseUno.equals(fraseDos)) {
@@ -63,16 +63,20 @@ public class Anagramas {
         llenarListasList(fraseUno, listaListUno);
         llenarListasList(fraseDos, listaListDos);
 
-        if (listaListUno.size() != listaListDos.size()) {
-            System.out.println("Las frases: " + "\n" + fraseUno + "\n" + fraseDos + "\n no son anagramas.");
-            return;
-        }
-
         System.out.println(listaListUno);
         System.out.println(listaListDos);
 
+        if (listaListUno.size() != listaListDos.size()) {
+            System.out.println("Las frases: '" + fraseUno + " <-> " + fraseDos + "' no son anagramas. Tamaño");
+            listaListUno.clear();
+            listaListDos.clear();
+            return;
+        }
+
         if (!listaListUno.equals(listaListDos)) {
-            System.out.println("No son anagramas.");
+            System.out.println("No son anagramas. Diferentes: " + fraseUno + " <-> " + fraseDos);
+            listaListUno.clear();
+            listaListDos.clear();
             return;
         }
 
@@ -90,7 +94,7 @@ public class Anagramas {
         }
          */
 
-        System.out.println("Son anagramas.");
+        System.out.println("Son anagramas: " + fraseUno + " <-> " + fraseDos);
 
         listaListUno.clear();
         listaListDos.clear();
@@ -98,7 +102,10 @@ public class Anagramas {
 
     public void llenarListasList(String frase, List<String> lista) {
         for (int i = 0; i < frase.length(); i++) {
-            lista.add(String.valueOf(frase.charAt(i)));
+            if (frase.charAt(i) == ' ') {
+                continue;
+            }
+            lista.add(String.valueOf(frase.charAt(i)).toLowerCase());
         }
         Collections.sort(lista);
         lista.sort(null);

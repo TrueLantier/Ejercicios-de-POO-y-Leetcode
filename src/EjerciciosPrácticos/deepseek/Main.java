@@ -7,10 +7,11 @@ public class Main {
         String[] listaUno = { "amor", "amor", "letras", "escuela", "roma", "a", "aa"};
         String[] listaDos = { "roma", "ramo", "lastre", "secuela", "amor", "a", "aa"};
 
+        CasosAnagrama ca = new CasosAnagrama();
         Anagramas anagramas = new Anagramas();
 
-        for (int i = 0; i < listaUno.length; i++) {
-            anagramas.comprobarListaAnagramas(listaUno[i], listaDos[i]);
+        for (int i = 0; i < ca.frasesA.length; i++) {
+            anagramas.comprobarListaAnagramas(ca.frasesA[i], ca.frasesB[i]);
             System.out.println();
         }
 
