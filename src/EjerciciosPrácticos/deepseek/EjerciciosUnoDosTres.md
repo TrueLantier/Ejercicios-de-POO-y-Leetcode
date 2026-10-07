@@ -33,7 +33,7 @@ Convierte un número decimal (1-3999) a romano y viceversa. Debe validar entrada
 ### 8 – Anagramas
 Comprueba si dos palabras o frases son anagramas, ignorando mayúsculas y espacios.
 
-### 9 – Subcadena más larga sin repetidos
+### 9 – Subcadena más larga sin repetidos --> FALTA
 Encuentra la subcadena más larga de una cadena que no contenga caracteres repetidos. Usa bucles tradicionales.
 
 ### 10 – Fibonacci con memoización
