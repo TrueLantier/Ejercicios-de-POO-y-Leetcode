@@ -11,7 +11,7 @@ public class Main {
         Anagramas anagramas = new Anagramas();
 
         for (int i = 0; i < ca.frasesA.length; i++) {
-            anagramas.comprobarListaAnagramas(ca.frasesA[i], ca.frasesB[i]);
+            anagramas.comprobarAnagramas(ca.casosA[i], ca.casosB[i]);
             System.out.println();
         }
 

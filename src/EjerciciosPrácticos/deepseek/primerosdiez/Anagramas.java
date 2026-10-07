@@ -7,8 +7,8 @@ package EjerciciosPrácticos.deepseek.primerosdiez;
 import java.util.*;
 
 public class Anagramas {
-    HashMap<String, Integer> listaUno = new HashMap<>();
-    HashMap<String, Integer> listaDos = new HashMap<>();
+    HashMap<Character, Integer> listaUno = new HashMap<>(); // Más rápido que String
+    HashMap<Character, Integer> listaDos = new HashMap<>();
     char[] listaSignos = { ' ', ',', '.', ';', ':', '?', '!'};
     boolean sonAnagramas = true;
     List<String> listaListUno = new ArrayList<>();
@@ -16,18 +16,31 @@ public class Anagramas {
 
     public void comprobarAnagramas(String fraseUno, String fraseDos) {
         if (fraseUno.equals(fraseDos)) {
-            System.out.println("Las frases: " + "\n" + fraseUno + "\n" + fraseDos + "\nson anagramas.");
+            System.out.println("Las frases: '" + fraseUno + " <-> " + fraseDos + "' son anagramas.");
+            listaUno.clear();
+            listaDos.clear();
             return;
         }
 
         llenarListas(fraseUno, listaUno);
         llenarListas(fraseDos, listaDos);
 
+        System.out.println(listaUno);
+        System.out.println(listaDos);
+
         if (listaUno.size() != listaDos.size()) {
-            System.out.println("Las frases: " + "\n" + fraseUno + "\n" + fraseDos + "\n no son anagramas.");
+            System.out.println("Las frases: '" + fraseUno + " <-> " + fraseDos + "' no son anagramas. Tamaño");
+            listaUno.clear();
+            listaDos.clear();
             return;
         }
 
+        if (!listaUno.equals(listaDos)) {
+            System.out.println("No son anagramas. Diferentes: " + fraseUno + " <-> " + fraseDos);
+            listaUno.clear();
+            listaDos.clear();
+            return;
+        }
 
 
         if (sonAnagramas) {
@@ -40,7 +53,9 @@ public class Anagramas {
         listaDos.clear();
     }
 
-    public void llenarListas(String frase, HashMap<String, Integer> lista) {
+    public void llenarListas(String frase, HashMap<Character, Integer> lista) {
+        frase = frase.toLowerCase();
+
         uno: for (int i = 0; i < frase.length(); i++) {
             for (char listaSigno : listaSignos) {
                 if (frase.charAt(i) == listaSigno) {
@@ -48,7 +63,7 @@ public class Anagramas {
                 }
             }
 
-            lista.merge(String.valueOf(frase.charAt(i)), 1, Integer::sum);
+            lista.merge(frase.charAt(i), 1, Integer::sum);
         }
     }
 
@@ -56,7 +71,7 @@ public class Anagramas {
 
     public void comprobarListaAnagramas(String fraseUno, String fraseDos) {
         if (fraseUno.equals(fraseDos)) {
-            System.out.println("Las frases: " + "\n" + fraseUno + "\n" + fraseDos + "\nson anagramas.");
+            System.out.println("Las frases: '" + fraseUno + " <-> " + fraseDos + "' son anagramas.");
             return;
         }
 
