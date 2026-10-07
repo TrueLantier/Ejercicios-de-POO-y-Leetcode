@@ -9,5 +9,10 @@ public class Main {
 
         Anagramas anagramas = new Anagramas();
 
+        for (int i = 0; i < listaUno.length; i++) {
+            anagramas.comprobarListaAnagramas(listaUno[i], listaDos[i]);
+            System.out.println();
+        }
+
     }
 }
