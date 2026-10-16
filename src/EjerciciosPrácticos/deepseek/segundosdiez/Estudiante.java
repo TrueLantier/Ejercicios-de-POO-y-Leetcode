@@ -6,6 +6,29 @@ package EjerciciosPrácticos.deepseek.segundosdiez;
  */
 
 public class Estudiante {
+    final int ID = (int) (Math.random() * 1000);
     String nombre;
+    int notaMatemáticas;
+    int notaEspañol ;
+    int notaInglés;
+    int notaFísica;
+    int notaQuímica;
+    int[] notasEstudiante = {notaMatemáticas, notaEspañol, notaInglés, notaFísica, notaQuímica};
 
+    public Estudiante(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "ID=" + ID +
+                ", nombre='" + nombre + '\'' +
+                ", notaMatemáticas=" + notaMatemáticas +
+                ", notaEspañol=" + notaEspañol +
+                ", notaInglés=" + notaInglés +
+                ", notaFísica=" + notaFísica +
+                ", notaQuímica=" + notaQuímica +
+                '}';
+    }
 }
