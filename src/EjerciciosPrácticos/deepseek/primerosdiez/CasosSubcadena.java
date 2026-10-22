@@ -1,7 +1,7 @@
 package EjerciciosPrácticos.deepseek.primerosdiez;
 
 public class CasosSubcadena {
-    String[] entradas = {
+    public String[] entradas = {
             "",
             "a",
             "abcabcbb",
