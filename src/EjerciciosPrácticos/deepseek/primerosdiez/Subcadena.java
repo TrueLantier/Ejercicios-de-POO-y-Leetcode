@@ -4,8 +4,6 @@ package EjerciciosPrácticos.deepseek.primerosdiez;
   Encuentra la subcadena más larga de una cadena que no contenga caracteres repetidos. Usa bucles tradicionales.
  */
 
-// Usaré String y no StringBuilder.
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,12 +29,17 @@ public class Subcadena {
 
                 if (subcadena.indexOf(caracter) < 0) {
                     subcadena.append(caracter);
+                    if (i==cadena.length()-1) { // Cuando termina una cadena limpia.
+                        listaSubcadenas.add(subcadena);
+                        subcadena = new StringBuilder();
+                    }
                 } else {
                     listaSubcadenas.add(subcadena);
-                    if (subcadena.length() > (cadena.length()-j)) {
-                        break uno;
-                    }
+//                    if (subcadena.length() > (cadena.length()-j)) {
+//                        break uno;
+//                    }
                     subcadena = new StringBuilder();
+
                     continue uno;
                     //subcadena.append(caracter);
                 }
@@ -45,18 +48,21 @@ public class Subcadena {
             }
         }
 
-        for (int i = 0; i < listaSubcadenas.size()-1; i++) {
-            int num1 = listaSubcadenas.get(i).length();
-            int num2 = listaSubcadenas.get(i+1).length();
+        List<Integer> listNums = new ArrayList<>();
+        string = String.valueOf(listaSubcadenas.getFirst());
+        int num1 = listaSubcadenas.getFirst().length();
+        for (StringBuilder listaSubcadena : listaSubcadenas) {
+            listNums.add(listaSubcadena.length());
+            int num2 = listaSubcadena.length();
 
-            if (num1 > num2) {
-                string = String.valueOf(listaSubcadenas.get(i));
-            } else {
-                string = String.valueOf(listaSubcadenas.get(i+1));
+            if (num1 < num2) {
+                num1 = num2;
+                string = String.valueOf(listaSubcadena);
             }
-
         }
+
         System.out.println(string);
+        System.out.println(listNums);
         System.out.println(listaSubcadenas);
         System.out.println(cadena);
     }
