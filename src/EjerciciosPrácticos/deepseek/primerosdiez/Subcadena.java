@@ -17,10 +17,6 @@ public class Subcadena {
         }
         listaSubcadenas = new ArrayList<>();
         StringBuilder subcadena = new StringBuilder();
-        String string = "";
-        String cadenaActual = "";
-        int longitud = 0;
-        int mayorLongitudActual;
 
         uno: for (int j = 0; j < cadena.length(); j++) {
 
@@ -35,13 +31,9 @@ public class Subcadena {
                     }
                 } else {
                     listaSubcadenas.add(subcadena);
-//                    if (subcadena.length() > (cadena.length()-j)) {
-//                        break uno;
-//                    }
                     subcadena = new StringBuilder();
 
                     continue uno;
-                    //subcadena.append(caracter);
                 }
 
 
@@ -49,7 +41,7 @@ public class Subcadena {
         }
 
         List<Integer> listNums = new ArrayList<>();
-        string = String.valueOf(listaSubcadenas.getFirst());
+        String string = String.valueOf(listaSubcadenas.getFirst());
         int num1 = listaSubcadenas.getFirst().length();
         for (StringBuilder listaSubcadena : listaSubcadenas) {
             listNums.add(listaSubcadena.length());
@@ -66,47 +58,17 @@ public class Subcadena {
         System.out.println(listaSubcadenas);
         System.out.println(cadena);
     }
-
-    public void analizarCadena(String cadena) {
-        listaSubcadenas = new ArrayList<>();
-        StringBuilder subcadena = new StringBuilder();
-        String string = "";
-        String cadenaActual = "";
-        int longitud = 0;
-        int mayorLongitudActual;
-
-        uno: for (int j = 0; j < cadena.length(); j++) {
-            mayorLongitudActual = 0;
-
-            for (int i = j; i < cadena.length(); i++) {
-                String caracter = String.valueOf(cadena.charAt(i));
-
-                if (subcadena.indexOf(caracter) < 0) {
-                    subcadena.append(caracter);
-                } else {
-                    listaSubcadenas.add(subcadena);
-                    subcadena = new StringBuilder();
-                    continue uno;
-                    // subcadena.append(caracter);
-                }
-
-                if (i == cadena.length()-1 && listaSubcadenas.isEmpty()) {
-                    string = String.valueOf(subcadena);
-                    break uno;
-                }
-
-                mayorLongitudActual++;
-            }
-
-            System.out.println(mayorLongitudActual + " " + longitud);
-            if (mayorLongitudActual > longitud || string.isEmpty()) {
-                longitud = mayorLongitudActual;
-                string = String.valueOf(listaSubcadenas.getLast());
-            }
-        }
-        System.out.println(string);
-    }
 }
+
+/*
+        Subcadena subcadena = new Subcadena();
+        String a = "weufrvbweufwrinrvirohsuvbrieruewbvbug";
+        int[] num = { 1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16};
+        CasosSubcadena casosSubcadena = new CasosSubcadena();
+
+        subcadena.buscarSubcadena(casosSubcadena.entradas[16]);
+        subcadena.buscarSubcadena(a);
+ */
 
 /*
     public void analizarCadena(String cadena) {
