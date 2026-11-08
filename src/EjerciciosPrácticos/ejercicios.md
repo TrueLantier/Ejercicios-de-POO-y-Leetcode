@@ -68,7 +68,10 @@ Sin `volatile`, pools ni executors: solo `Thread`, `Runnable`, `synchronized`, `
 16. `wait()`/`notify()` básico: el hilo A espera a que una condición sea verdadera y el hilo B la activa. Usa `while (!condicion) wait();` dentro de `synchronized` y explica por qué `while` y no `if` (despertares espurios).
 17. Ping-pong: dos hilos imprimen "ping" y "pong" alternándose 10 veces, coordinados solo con `wait()`/`notify()`.
 18. Productor-consumidor con buffer de un único slot: `poner()` y `tomar()` sincronizados con espera.
-19. Productor-consumidor con buffer acotado (tu propia cola sobre `LinkedList`, capacidad N), varios productores y varios consumidores. Usa `notifyAll()` y demuestra con un caso concreto por qué `notify()` simple puede dejar hilos dormidos para siempre.
-20. Integrador: implementa a mano un `Latch` (cuenta atrás). `esperar()` bloquea hasta que N hilos hayan llamado a `llegar()`. Úsalo para que 5 hilos "corredores" arranquen todos a la vez tras una señal de salida.
+19. Productor-consumidor con buffer acotado (tu propia cola sobre `LinkedList`, capacidad N), varios 
+productores y varios consumidores. Usa `notifyAll()` y demuestra con un caso concreto por qué `notify()`
+simple puede dejar hilos dormidos para siempre.
+20. Integrador: implementa a mano un `Latch` (cuenta atrás). `esperar()` bloquea hasta que N hilos hayan 
+llamado a `llegar()`. Úsalo para que 5 hilos "corredores" arranquen todos a la vez tras una señal de salida.
 
 ¿Quieres que los genere también en PDF con el formato de tus cursos?
