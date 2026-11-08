@@ -9,7 +9,7 @@ package EjerciciosPrácticos.hilos.productorconsumidor;
  */
 
 public class Productor implements Runnable{
-    Thread thread;
+    public Thread thread;
 
     public Productor() {
         thread = new Thread(this, "Productor");
@@ -17,10 +17,26 @@ public class Productor implements Runnable{
 
     @Override
     public void run() {
-        poner();
+
+
+        for (int i = 0; i < 5; i++) {
+            poner();
+            System.out.println("Hilo " + thread.getName() + " " + i + " " + Cliente.num);
+            System.out.println(Cliente.estado);
+
+            notify();
+            while (Cliente.estado.equals("Puesto")) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    System.out.println("Error en el hilo " + thread.getName());
+                }
+            }
+        }
+
     }
 
-    public synchronized void poner() {
+    public void poner() {
         ++Cliente.num;
         Cliente.estado = "Puesto";
     }
