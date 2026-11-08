@@ -11,22 +11,32 @@ public class Consumidor implements Runnable{
     public void run() {
 
         for (int i = 0; i < 5; i++) {
-            tomar();
-            System.out.println("Hilo " + thread.getName() + " " + i + " " + Cliente.num);
-            System.out.println(Cliente.estado);
+            synchronized (Cliente.class) {
+                tomar();
+                System.out.println("Hilo " + thread.getName() + " " + i + " " + Cliente.num);
+                System.out.println(Cliente.estado);
 
-            notify();
-            while (Cliente.estado.equals("Tomado")) {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    System.out.println("Error en el hilo " + thread.getName());
+                Cliente.class.notify();
+                if (i == 4) {break;} // Notifica y libera a Productor.
+                while (Cliente.estado.equals("Tomado")) {
+                    try {
+                        Cliente.class.wait();
+                    } catch (InterruptedException e) {
+                        System.out.println("Error en el hilo " + thread.getName());
+                    }
                 }
+
             }
         }
+
+
     }
 
-    public synchronized void tomar() {
+    public void iniciar() {
+        thread.start();
+    }
+
+    public void tomar() {
         --Cliente.num;
         Cliente.estado = "Tomado";
     }
