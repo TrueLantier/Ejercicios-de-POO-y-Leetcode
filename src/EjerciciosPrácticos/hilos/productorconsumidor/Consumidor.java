@@ -9,10 +9,10 @@ public class Consumidor implements Runnable{
 
     @Override
     public void run() {
-
+        tomar();
     }
 
-    public void tomar() {
+    public synchronized void tomar() {
         --Cliente.num;
         Cliente.estado = "Tomado";
     }

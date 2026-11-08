@@ -17,10 +17,10 @@ public class Productor implements Runnable{
 
     @Override
     public void run() {
-
+        poner();
     }
 
-    public void poner() {
+    public synchronized void poner() {
         ++Cliente.num;
         Cliente.estado = "Puesto";
     }
